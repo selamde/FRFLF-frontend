@@ -6,7 +6,7 @@ const MatchedForOp = () => {
   const [fugitives, setFugitives] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/fetch-matched-fugitives")
+    axios.get("https://frflf-backend.onrender.com/fetch-matched-fugitives")
       .then(result => setFugitives(result.data))
       .catch((err) => console.log(err));
   }, []);
@@ -15,7 +15,7 @@ const MatchedForOp = () => {
     Swal.fire({
       title: `<strong>${fugitive.name.toUpperCase()}</strong>`,
       html: `
-        <img src="http://localhost:3001/matched_faces/${fugitive.folder}/${fugitive.file}" 
+        <img src="https://frflf-backend.onrender.com/matched_faces/${fugitive.folder}/${fugitive.file}" 
              alt="${fugitive.name}" 
              style="width:100%; height:auto; border-radius:10px; margin-bottom:15px;" />
         <p><strong>Camera:</strong> ${fugitive.camera}</p>
