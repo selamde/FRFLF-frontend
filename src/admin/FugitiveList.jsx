@@ -52,7 +52,7 @@ const FugitiveList = () => {
             className="border p-4 shadow-lg text-center cursor-pointer bg-white hover:shadow-2xl rounded-xl transition-all"
           >
             <img
-              src={`http://localhost:3001/matched_faces/${fugitive.folder}/${fugitive.file}`}
+              src={`https://frflf-backend.onrender.com/matched_faces/${fugitive.folder}/${fugitive.file}`}
               alt='matched fugitive'
               className="w-full h-60 object-cover rounded-lg mb-2"
             />
