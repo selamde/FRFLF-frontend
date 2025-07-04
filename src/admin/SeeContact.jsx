@@ -10,7 +10,7 @@ const SeeContact = () => {
     const [contact, setContact] = useState();
 
     useEffect(()=>{
-        axios.get('http://localhost:3001/getcontact')
+        axios.get('https://frflf-backend.onrender.com/getcontact')
         .then(result => setContact(result.data))
         .catch(err => console.log(err))
     },[]);
@@ -18,7 +18,7 @@ const SeeContact = () => {
     const handleDelete = async(e, id)=>{
         e.preventDefault();
         try{
-            const response = await axios.delete(`http://localhost:3001/delete/${id}`);
+            const response = await axios.delete(`https://frflf-backend.onrender.com/delete/${id}`);
             console.log(response);
             if(response.status ===200){
                 Swal.fire({
@@ -37,7 +37,7 @@ const SeeContact = () => {
     }
     const handleDisplay = (e,id)=>{
         e.preventDefault();
-        axios(`http://localhost:3001/getmessage/${id}`)
+        axios(`https://frflf-backend.onrender.com/getmessage/${id}`)
         .then(result=>{
             console.log(result.data);
             Swal.fire({
