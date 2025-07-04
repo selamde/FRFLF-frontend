@@ -12,7 +12,7 @@ const Match = () => {
   const [noMatch, setNoMatch] = useState(false);
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/matched_photos/${name}`)
+    axios.get(`https://frflf-backend.onrender.com/matched_photos/${name}`)
       .then((res) => {
         if (res.data.length === 0) {
           setNoMatch(true);
@@ -88,7 +88,7 @@ const Match = () => {
           className="rounded-xl overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300"
         >
           <img
-            src={`http://localhost:3001/matched_faces/${name}/${file}`}
+            src={`https://frflf-backend.onrender.com/matched_faces/${name}/${file}`}
             
             alt={`${name}-${index}`}
             className="w-full h-64 object-cover"
@@ -98,7 +98,7 @@ const Match = () => {
               cameraName,
               date,
               time,
-              `http://localhost:3001/matched_faces/${name}/${file}`
+              `https://frflf-backend.onrender.com/matched_faces/${name}/${file}`
     )
             }}
           />
