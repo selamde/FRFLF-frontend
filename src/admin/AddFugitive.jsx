@@ -42,7 +42,7 @@ const AddFugitive = () => {
          }
 
         try{
-          const response = await axios.post('http://localhost:3001/add-fugitive', formData, {
+          const response = await axios.post('https://frflf-backend.onrender.com/add-fugitive', formData, {
             headers: {
               'Content-Type': 'multipart/form-data'
             }
