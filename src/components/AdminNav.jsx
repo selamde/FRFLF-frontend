@@ -31,7 +31,7 @@ const AdminNav = () => {
   useEffect(() => {
     const fetchCount = async () => {
       try {
-        const res = await axios.get('http://localhost:3001/matched-image-count');
+        const res = await axios.get('https://frflf-backend.onrender.com/matched-image-count');
         const currentCount = res.data.count;
         let lastSeen = localStorage.getItem('lastSeenMatchCount');
 
