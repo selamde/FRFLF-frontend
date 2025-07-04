@@ -11,7 +11,7 @@ const Contact = () => {
   const handleSubmit =async (e)=>{
     e.preventDefault();
     try{
-      const response = await axios.post('http://localhost:3001/contact',{email, phone, description});
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/contact`,{email, phone, description});
       if(response){
         Swal.fire({
                       title: "Fugitive Data added successfully!",
