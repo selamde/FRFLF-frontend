@@ -12,7 +12,7 @@ const CriminalList = () => {
     const {user} = useAuth();
 
     useEffect(()=>{
-        axios.get('http://localhost:3001/getCriminal')
+        axios.get('https://frflf-backend.onrender.com/getCriminal')
         .then(result => setCriminal(result.data))
         .catch(err => console.error(err));
 
@@ -21,7 +21,7 @@ const CriminalList = () => {
     const handleSearch = async (e)=>{
       e.preventDefault();
       try{
-     const res = await axios.get(`http://localhost:3001/search?q=${query}`);
+     const res = await axios.get(`https://frflf-backend.onrender.com/search?q=${query}`);
      setResults(res.data);
       }catch(err){
         console.error("Search error", err);
@@ -32,7 +32,7 @@ const CriminalList = () => {
     const handleDelete = async (e, id) => {
         e.preventDefault();
         try{
-          const response = await axios.delete(`http://localhost:3001/delete-list/${id}`, {params: { adminId: user?.id, adminName: user?.name } });
+          const response = await axios.delete(`https://frflf-backend.onrender.com/delete-list/${id}`, {params: { adminId: user?.id, adminName: user?.name } });
           console.log(response);
           if(response.status === 200){
            
