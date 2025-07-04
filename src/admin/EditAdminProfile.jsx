@@ -18,7 +18,7 @@ const EditAdminProfile = () => {
               const { user, isAuthenticated, logout} = useAuth();
         
             useEffect(()=>{
-                axios.get(`http://localhost:3001/getusData/${id}`)
+                axios.get(`https://frflf-backend.onrender.com/getusData/${id}`)
                 .then(result => {
                     setName(result.data.name);
                     setEmail(result.data.email);
@@ -47,7 +47,7 @@ const EditAdminProfile = () => {
             }
     
             try{
-              const response = await axios.post(`http://localhost:3001/profile-update/${id}`, formData, {
+              const response = await axios.post(`https://frflf-backend.onrender.com/profile-update/${id}`, formData, {
                 headers: {
                   'Content-Type': 'multipart/form-data'
                 }
