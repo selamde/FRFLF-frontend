@@ -61,34 +61,7 @@ const SeeReport = () => {
     }
   };
 
-  const handleDelete = async (e, id) => {
-    e.preventDefault();
-    try {
-      setActionLoading({...actionLoading, delete: id});
-      const response = await axios.delete(
-        `https://frflf-backend.onrender.com/checkreport/${id}`,
-        { params: { adminId: user.id, adminName: user.name } }
-      );
-      
-      if (response.status === 200) {
-        Swal.fire({
-          title: "Report Deleted Successfully!",
-          icon: "success",
-          timer: 3000
-        });
-        setReports(reports.filter(report => report._id !== id));
-      }
-    } catch (err) {
-      console.error(err);
-      Swal.fire({
-        title: "Error",
-        text: err.message,
-        icon: "error"
-      });
-    } finally {
-      setActionLoading({...actionLoading, delete: null});
-    }
-  };
+  
 
   const handleDisplay = async (e, id) => {
     e.preventDefault();
@@ -184,20 +157,7 @@ const SeeReport = () => {
                     {report.description}
                   </p>
                   <div className="flex justify-between pt-4">
-                    <button
-                      onClick={(e) => handleDelete(e, report._id)}
-                      disabled={actionLoading.delete === report._id}
-                      className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition flex items-center gap-2"
-                    >
-                      {actionLoading.delete === report._id ? (
-                        <>
-                          <ClipLoader size={15} color="#FFFFFF" />
-                          Deleting...
-                        </>
-                      ) : (
-                        'Delete'
-                      )}
-                    </button>
+                   
                     <button
                       onClick={(e) => handleCheck(e, report._id)}
                       disabled={report.checked || actionLoading.check === report._id}
