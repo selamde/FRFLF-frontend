@@ -45,7 +45,7 @@ const UpdateProfile = () => {
         }
 
         try{
-          const response = await axios.post(`http://localhost:3001/profile-update/${id}`, formData, {
+          const response = await axios.post(`${process.env.REACT_APP_API_URL}/profile-update/${id}`, formData, {
             headers: {
               'Content-Type': 'multipart/form-data'
             }
