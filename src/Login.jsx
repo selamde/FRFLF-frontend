@@ -13,7 +13,7 @@ const Login = () => {
       e.preventDefault();
 
     try{
-      const response = await axios.post(`${process.env.REACT_APP_API_URL }/login`,{name, password});
+      const response = await axios.post('https://frflf-backend.onrender.com/login',{name, password});
       console.log("Response:", response);
       if(response.status === 200){
   
