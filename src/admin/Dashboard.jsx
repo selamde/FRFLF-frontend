@@ -16,7 +16,7 @@ const [operatorCount, setOperator] = useState(0);
 
     const fetchMessage = async ()=>{
       try{
-        const res = await axios.get('http://localhost:3001/getmessage');
+        const res = await axios.get('https://frflf-backend.onrender.com/getmessage');
         setMessage(res.data.countMessage);
         console.log(res.data.countMessage);
 
@@ -28,7 +28,7 @@ const [operatorCount, setOperator] = useState(0);
 
     const fetchCriminalCount = async ()=>{
       try{
-        const res = await axios.get('http://localhost:3001/criminal-count');
+        const res = await axios.get('https://frflf-backend.onrender.com/criminal-count');
         setCriminalCount(res.data.criminalCount);
         console.log(res.data.criminalCount);
 
@@ -40,7 +40,7 @@ const [operatorCount, setOperator] = useState(0);
 
     const fetchReport = async ()=>{
       try{
-        const res = await axios.get('http://localhost:3001/report-count');
+        const res = await axios.get('https://frflf-backend.onrender.com/report-count');
         setCountReport(res.data.reportCount);
         console.log(res.data.reportCount);
 
@@ -51,7 +51,7 @@ const [operatorCount, setOperator] = useState(0);
     }
     const fetchData= async()=>{
       try{
-        const res = await axios.get('http://localhost:3001/camera-count');
+        const res = await axios.get('https://frflf-backend.onrender.com/camera-count');
         setCameraCount(res.data.count);
         console.log(res.data.count);
 
@@ -63,7 +63,7 @@ const [operatorCount, setOperator] = useState(0);
 
     const fetchAdmin = async ()=>{
       try{
-        const res = await axios.get('http://localhost:3001/admin-count');
+        const res = await axios.get('https://frflf-backend.onrender.com/admin-count');
         setAdminCount(res.data.countad);
         console.log(res.data.countad);
       }catch(error){
@@ -74,7 +74,7 @@ const [operatorCount, setOperator] = useState(0);
     
     const fetchPolice = async ()=>{
       try{
-        const res = await axios.get('http://localhost:3001/police-count');
+        const res = await axios.get('https://frflf-backend.onrender.com/police-count');
         setPoliceCount(res.data.countpl);
         console.log(res.data.countpl);
 
@@ -86,7 +86,7 @@ const [operatorCount, setOperator] = useState(0);
 
     const fetchOperator = async ()=>{
       try{
-        const res = await axios.get('http://localhost:3001/operator-count');
+        const res = await axios.get('https://frflf-backend.onrender.com/operator-count');
         setOperator(res.data.countop);
         console.log(res.data.countop);
 
@@ -108,7 +108,7 @@ const [operatorCount, setOperator] = useState(0);
 
 
    useEffect(() => {
-    axios.get('http://localhost:3001/matched-image-count')
+    axios.get('https://frflf-backend.onrender.com/matched-image-count')
       .then(res => setFugitiveCount(res.data.count))
       .catch(err => console.log('Error fetching matched image count:', err));
   }, []);
