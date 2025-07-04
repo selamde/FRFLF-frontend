@@ -83,7 +83,7 @@ const OperatorHeader = () => {
               <audio ref={audioRef} src="/notification.mp3" preload="auto" />
             </div>
             <div ref={profileRef} className='border-2 border-white rounded-full cursor-pointer' onClick={() => setPro(!pro)}>
-              <img className='w-[50px] h-[50px] rounded-full' src={`http://localhost:3001/${user.image}`} alt='profile' />
+              <img className='w-[50px] h-[50px] rounded-full' src={`https://frflf-backend.onrender.com/${user.image}`} alt='profile' />
             </div>
             {pro && (
               <div ref={profileRef} className='absolute top-20 right-10 flex flex-col justify-center rounded text-black items-center gap-2 bg-gray-200 border w-[200px] h-[200px] border-blue-500'>
