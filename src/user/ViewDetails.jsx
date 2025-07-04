@@ -6,7 +6,7 @@ const ViewDetails = () => {
     const [fugitive, setFugitive] = useState(null);
     const {id} = useParams();
     useEffect(()=>{
-        axios.get(`http://localhost:3001/get-criminal-list/${id}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/get-criminal-list/${id}`)
         .then(result => {
             setFugitive(result.data)
             console.log(result)
