@@ -7,7 +7,7 @@ const FugitiveList = () => {
   const [fugitives, setFugitives] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/fetch-matched-fugitives")
+    axios.get("https://frflf-backend.onrender.com/fetch-matched-fugitives")
       .then(result => setFugitives(result.data))
       .catch((err) => console.log(err));
   }, []);
@@ -16,7 +16,7 @@ const FugitiveList = () => {
     Swal.fire({
       title: `<strong>${fugitive.name.toUpperCase()}</strong>`,
       html: `
-        <img src="http://localhost:3001/matched_faces/${fugitive.folder}/${fugitive.file}" 
+        <img src="https://frflf-backend.onrender.com/matched_faces/${fugitive.folder}/${fugitive.file}" 
              alt="${fugitive.name}" 
              style="width:100%; height:auto; border-radius:10px; margin-bottom:15px;" />
         <p><strong>Camera:</strong> ${fugitive.camera}</p>
@@ -52,7 +52,7 @@ const FugitiveList = () => {
             className="border p-4 shadow-lg text-center cursor-pointer bg-white hover:shadow-2xl rounded-xl transition-all"
           >
             <img
-              src={`http://localhost:3001/matched_faces/${fugitive.folder}/${fugitive.file}`}
+              src={`https://frflf-backend.onrender.com/matched_faces/${fugitive.folder}/${fugitive.file}`}
               alt='matched fugitive'
               className="w-full h-60 object-cover rounded-lg mb-2"
             />
