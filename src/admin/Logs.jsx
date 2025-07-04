@@ -7,7 +7,7 @@ const Logs = () => {
     const [logs, setLogs] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/admin/logs') 
+    axios.get('https://frflf-backend.onrender.com/api/admin/logs') 
       .then(res => setLogs(res.data))
       .catch(err => console.error('Error fetching logs:', err));
   }, []);
