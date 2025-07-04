@@ -10,7 +10,7 @@ const Fugitives = () => {
       const [result, setResults] = useState([]);
 
   useEffect(()=>{
-    axios.get(`${process.env.REACT_APP_API_URL}/getCriminal`)
+    axios.get(`https://frflf-backend.onrender.com/getCriminal`)
     .then(result => setFugitives(result.data))
     .catch((err) => console.log(err))
   },[]);
@@ -18,7 +18,7 @@ const Fugitives = () => {
   const handleSearch = async (e)=>{
         e.preventDefault();
         try{
-       const res = await axios.get(`${process.env.REACT_APP_API_URL}/search?q=${query}`);
+       const res = await axios.get(`https://frflf-backend.onrender.com/search?q=${query}`);
        setResults(res.data);
         }catch(err){
           console.error("Search error", err);
