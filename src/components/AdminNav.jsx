@@ -96,7 +96,7 @@ const AdminNav = () => {
                   </div>
                   <div ref={profileRef}   className=' border-2 border-white rounded-full ' onClick={()=>setPro(!pro)}>
                     <img className='w-[50px] h-[50px] rounded-full' src={
-                     `http://localhost:3001/${user.image}`
+                     `https://frflf-backend.onrender.com/${user.image}`
                      }alt='profile' />
                   </div>
                 </div>
