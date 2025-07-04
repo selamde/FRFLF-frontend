@@ -8,7 +8,7 @@ const ViewProfile = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
-        axios.get(`${process.env.REACT_APP_API_URL}/getuData/${id}`)
+        axios.get(`https://frflf-backend.onrender.com/getuData/${id}`)
         .then(result => {
             setUser(result.data);
             setLoading(false);
