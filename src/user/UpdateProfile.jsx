@@ -65,7 +65,7 @@ const UpdateProfile = () => {
               icon: "success",
               draggable: true
             }).then(()=>{
-             navigate(`/profile/${id}`);
+             navigate('/login');
             });
           }
           console.log(response.data);
