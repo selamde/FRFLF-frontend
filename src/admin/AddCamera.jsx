@@ -20,7 +20,7 @@ const AddCamera = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3001/add-camera',{ 
+            const response = await axios.post('https://frflf-backend.onrender.com/add-camera',{ 
                 ...cameraData, 
                 adminId:user?.id,
       
