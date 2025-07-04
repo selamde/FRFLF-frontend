@@ -39,7 +39,7 @@ const ViewProfile = () => {
                     <div className='flex flex-col gap-5'>
                         <p className='text-2xl'><span className='font-bold text-blue-500'>Name: </span>{user.name}</p>
                         <p className='text-2xl'><span className='font-bold text-blue-500'>Role: </span>{user.role}</p>
-                        <p className='text-2xl'><span className='font-bold text-blue-500 '>Password: </span>{user.password.slice(0,10)} <span className='text-red-500'>(Password encrypted)</span></p>
+                        <p className='text-2xl'><span className='font-bold text-blue-500 '>Password: </span>{user?.password.slice(0,10)} <span className='text-red-500'>(Password encrypted)</span></p>
                         <Link to={`/updateprofile/${user._id}`} className='bg-green-600 w-[200px] text-center p-2 rounded-md text-xl hover:bg-white border hover:border-gray-600 hover:text-green-600 text-white font-bold'>Update profile</Link>
                     </div>
                 </div>
