@@ -24,7 +24,7 @@ const CreateUser = () => {
              }
     
             try{
-              const response = await axios.post('http://localhost:3001/create-user', formData, {
+              const response = await axios.post('https://frflf-backend.onrender.com/create-user', formData, {
                 headers: {
                   'Content-Type': 'multipart/form-data'
                 }
