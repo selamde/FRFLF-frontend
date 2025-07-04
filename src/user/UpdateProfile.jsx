@@ -16,7 +16,7 @@ const UpdateProfile = () => {
         const navigate = useNavigate();
     
         useEffect(()=>{
-            axios.get(`${process.env.REACT_APP_API_URL}/getusData/${id}`)
+            axios.get(`https://frflf-backend.onrender.com/getusData/${id}`)
             .then(result => {
                 setName(result.data.name);
                 setEmail(result.data.email);
@@ -45,7 +45,7 @@ const UpdateProfile = () => {
         }
 
         try{
-          const response = await axios.post(`${process.env.REACT_APP_API_URL}/profile-update/${id}`, formData, {
+          const response = await axios.post(`https://frflf-backend.onrender.com/profile-update/${id}`, formData, {
             headers: {
               'Content-Type': 'multipart/form-data'
             }
