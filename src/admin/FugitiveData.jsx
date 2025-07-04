@@ -7,7 +7,7 @@ const FugitiveData = () => {
         const {id} = useParams();
     
         useEffect(()=>{
-            axios.get(`http://localhost:3001/get-criminal-list/${id}`)
+            axios.get(`https://frflf-backend.onrender.com/get-criminal-list/${id}`)
             .then(result => {
                 setFugitive(result.data);
                 console.log(result);
@@ -31,7 +31,7 @@ const FugitiveData = () => {
                     <div className=' mb-7 flex flex-col md:gap-5 justify-center items-center font-secondary'>
                     <h1 className='text-5xl w-full text-center text-red-500'>{fugitive.fullName}</h1>
                     <p className='text-red-500 text-2xl'>{fugitive.charges}</p>
-                    <img src={`http://localhost:3001/${fugitive.imagePath}`} className='w-[200px] h-[200px] rounded-2xl' alt="fugitive" />
+                    <img src={`https://frflf-backend.onrender.com/${fugitive.imagePath}`} className='w-[200px] h-[200px] rounded-2xl' alt="fugitive" />
                     
                 </div>
                 <div className='mb-7'>
