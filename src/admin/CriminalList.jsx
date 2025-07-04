@@ -121,7 +121,7 @@ const CriminalList = () => {
                     {
                         item.imagePath&& (
                             <img 
-                            src={`http://localhost:3001/${item.imagePath}`}
+                            src={`https://frflf-backend.onrender.com/${item.imagePath}`}
                             alt='data'
                             className='w-[100px] h-[100px] object-cover' />
 
