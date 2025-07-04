@@ -13,7 +13,7 @@ import AdminRoute from './AdminRoute';
 import AddFugitive from '../admin/AddFugitive';
 import SeeContact from '../admin/SeeContact';
 import CriminalList from '../admin/CriminalList';
-import ViewDetails from '../user/viewdetails';
+import ViewDetails from '../user/ViewDetails';
 import SeeReport from '../admin/SeeReport';
 import UpdateCriminal from '../admin/UpdateCriminal';
 import FugitiveData from '../admin/FugitiveData';
