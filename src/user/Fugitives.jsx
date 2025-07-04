@@ -85,7 +85,7 @@ const Fugitives = () => {
               <div key={index} className='flex items-center flex-wrap bg-[#242234] mb-8 gap-4 p-4 rounded'>
                 <div className='w-full h-[300px] flex flex-shrink-0 items-center justify-center overflow-hidden rounded'>
                   <img 
-                    src={`${process.env.REACT_APP_API_URL}/${fugitive.imagePath}`} 
+                    src={`https://frflf-backend.onrender.com/${fugitive.imagePath}`} 
                     className='w-full h-full object-cover'
                     alt={fugitive.fullName}
                   />
