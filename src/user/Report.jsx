@@ -18,7 +18,7 @@ const Report = () => {
     }
 
     try{
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/send-report`, formData,{
+      const response = await axios.post(`https://frflf-backend.onrender.com/send-report`, formData,{
         headers:{
           'Content-Type': 'multipart/form-data'
         }
