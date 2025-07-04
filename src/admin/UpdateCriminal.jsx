@@ -22,7 +22,7 @@ const UpdateCriminal = () => {
     const [image, setImage] = useState(null);
 
     useEffect(()=>{
-        axios.get(`http://localhost:3001/get-criminal-list/${id}`)
+        axios.get(`https://frflf-backend.onrender.com/get-criminal-list/${id}`)
         .then(result => {
             console.log(result.data);
             setFullName(result.data.fullName);
@@ -72,7 +72,7 @@ const UpdateCriminal = () => {
         }
 
         try{
-          const response = await axios.post(`http://localhost:3001/update-fugitive/${id}`, formData, {
+          const response = await axios.post(`https://frflf-backend.onrender.com/update-fugitive/${id}`, formData, {
             headers: {
               'Content-Type': 'multipart/form-data'
             }
