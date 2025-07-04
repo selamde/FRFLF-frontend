@@ -8,7 +8,7 @@ const ViewAdminProfile = () => {
    const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
-        axios.get(`http://localhost:3001/getuData/${id}`)
+        axios.get(`https://frflf-backend.onrender.com/getuData/${id}`)
         .then(result => {
             setUser(result.data);
             setLoading(false);
@@ -29,7 +29,7 @@ const ViewAdminProfile = () => {
                 <div className='w-full'>
                     <div className='flex md:flex-row  flex-col items-center  gap-10 border-b border-blue-500 p-2 mb-4'>
                         <div>
-                            <img className='w-[200px] h-[200px] rounded-full' src={`http://localhost:3001/${user.image}`} alt="" />
+                            <img className='w-[200px] h-[200px] rounded-full' src={`https://frflf-backend.onrender.com/${user.image}`} alt="" />
                         </div>
                         <div>
                             <h1 className='md:text-4xl text-2xl font-bold'>{user.name}</h1>
