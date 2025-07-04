@@ -6,7 +6,7 @@ const ViewAdmins = () => {
     const [admins, setAdmins] = useState();
 
      useEffect(()=>{
-        axios.get('http://localhost:3001/getAdmins')
+        axios.get('https://frflf-backend.onrender.com/getAdmins')
         .then(result => setAdmins(result.data))
         .catch(err => console.log(err))
     },[]);
@@ -34,7 +34,7 @@ const ViewAdmins = () => {
                const handleDelete = async(e, id)=>{
         e.preventDefault();
         try{
-            const response = await axios.delete(`http://localhost:3001/admindelete/${id}`);
+            const response = await axios.delete(`https://frflf-backend.onrender.com/admindelete/${id}`);
             console.log(response);
             if(response.status ===200){
                 Swal.fire({
@@ -72,7 +72,7 @@ const ViewAdmins = () => {
               className="flex items-center gap-5"
             >
               <img
-                src={`http://localhost:3001/${item.image}`}
+                src={`https://frflf-backend.onrender.com/${item.image}`}
                 alt={item.name}
                 className="w-16 h-16 rounded-full object-cover border-2 border-white shadow-md"
               />
