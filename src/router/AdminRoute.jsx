@@ -19,7 +19,7 @@ const AdminRoute = ({children}) => {
   }
 
   if (!isAuthenticated || user?.role !== 'admin') {
-    // return <Navigate to="/login" replace />;
+    return <Navigate to="/login" replace />;
   }
 
   return (
