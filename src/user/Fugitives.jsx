@@ -10,7 +10,7 @@ const Fugitives = () => {
       const [result, setResults] = useState([]);
 
   useEffect(()=>{
-    axios.get('http://localhost:3001/getCriminal')
+    axios.get(`${process.env.REACT_APP_API_URL}/getCriminal`)
     .then(result => setFugitives(result.data))
     .catch((err) => console.log(err))
   },[]);
@@ -18,7 +18,7 @@ const Fugitives = () => {
   const handleSearch = async (e)=>{
         e.preventDefault();
         try{
-       const res = await axios.get(`http://localhost:3001/search?q=${query}`);
+       const res = await axios.get(`${process.env.REACT_APP_API_URL}/search?q=${query}`);
        setResults(res.data);
         }catch(err){
           console.error("Search error", err);
