@@ -16,7 +16,7 @@ const UpdateProfile = () => {
         const navigate = useNavigate();
     
         useEffect(()=>{
-            axios.get(`http://localhost:3001/getusData/${id}`)
+            axios.get(`${process.env.REACT_APP_API_URL}/getusData/${id}`)
             .then(result => {
                 setName(result.data.name);
                 setEmail(result.data.email);
