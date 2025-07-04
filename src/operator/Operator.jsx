@@ -18,7 +18,7 @@ const Operator = () => {
     useEffect(() => {
       const fetchCount = async () => {
         try {
-          const res = await axios.get('http://localhost:3001/matched-image-count');
+          const res = await axios.get('https://frflf-backend.onrender.com/matched-image-count');
           const currentCount = res.data.count;
           const lastSeen = parseInt(localStorage.getItem('lastSeenMatchCount') || '0', 10);
           setMatchCount(currentCount);
@@ -40,7 +40,7 @@ const Operator = () => {
 
     useEffect(() => {
       axios
-        .get('http://localhost:3001/fetch-cameras')
+        .get('https://frflf-backend.onrender.com/fetch-cameras')
         .then((res) => setCameras(res.data))
         .catch((err) => console.error('Error fetching cameras:', err));
     }, []);
