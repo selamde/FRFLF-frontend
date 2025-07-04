@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { ClipLoader } from 'react-spinners'; // Import a spinner component
 
 const Dashboard = () => {
   const [cameraCount, setCameraCount] = useState(0);
@@ -11,12 +12,15 @@ const Dashboard = () => {
   const [adminCount, setAdminCount] = useState(0);
   const [policeCount, setPoliceCount] = useState(0);
   const [operatorCount, setOperator] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); // Loading state
 
   useEffect(() => {
-    let isMounted = true;
+    let isMounted = true; // Flag to prevent state updates after unmount
+
     const fetchAllData = async () => {
       try {
+        setLoading(true);
+        
         // Fetch all data in parallel
         const [
           messageRes,
@@ -28,14 +32,14 @@ const Dashboard = () => {
           operatorRes,
           fugitiveRes
         ] = await Promise.all([
-          axios.get('https://frflf-backend.onrender.com/getmessage'),
-          axios.get('https://frflf-backend.onrender.com/criminal-count'),
-          axios.get('https://frflf-backend.onrender.com/report-count'),
-          axios.get('https://frflf-backend.onrender.com/camera-count'),
-          axios.get('https://frflf-backend.onrender.com/admin-count'),
-          axios.get('https://frflf-backend.onrender.com/police-count'),
-          axios.get('https://frflf-backend.onrender.com/operator-count'),
-          axios.get('https://frflf-backend.onrender.com/matched-image-count')
+          axios.get('http://localhost:3001/getmessage'),
+          axios.get('http://localhost:3001/criminal-count'),
+          axios.get('http://localhost:3001/report-count'),
+          axios.get('http://localhost:3001/camera-count'),
+          axios.get('http://localhost:3001/admin-count'),
+          axios.get('http://localhost:3001/police-count'),
+          axios.get('http://localhost:3001/operator-count'),
+          axios.get('http://localhost:3001/matched-image-count')
         ]);
 
         if (isMounted) {
@@ -47,10 +51,10 @@ const Dashboard = () => {
           setPoliceCount(policeRes.data.countpl);
           setOperator(operatorRes.data.countop);
           setFugitiveCount(fugitiveRes.data.count);
-          setLoading(false);
         }
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching dashboard data:', error);
+      } finally {
         if (isMounted) {
           setLoading(false);
         }
@@ -60,7 +64,7 @@ const Dashboard = () => {
     fetchAllData();
 
     return () => {
-      isMounted = false;
+      isMounted = false; // Cleanup function
     };
   }, []);
 
@@ -68,7 +72,7 @@ const Dashboard = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-opacity-75"></div>
+          <ClipLoader size={50} color="#3B82F6" />
           <p className="mt-4 text-xl font-semibold text-gray-700">Loading Dashboard...</p>
         </div>
       </div>
