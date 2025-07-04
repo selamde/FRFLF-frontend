@@ -12,7 +12,7 @@ const SeeReport = () => {
 
   const fetchReports = async () => {
   try {
-    const result = await axios.get('http://localhost:3001/getreport');
+    const result = await axios.get('https://frflf-backend.onrender.com/getreport');
     setReports(result.data);
   } catch (err) {
     console.log(err);
@@ -28,7 +28,7 @@ const SeeReport = () => {
      const handleCheck = async (e, id) => {
   e.preventDefault();
   try {
-    const response = await axios.patch(`http://localhost:3001/checkreport/${id}`);
+    const response = await axios.patch(`https://frflf-backend.onrender.com/checkreport/${id}`);
     if (response.status === 200) {
       Swal.fire({
         title: "Marked as Checked!",
@@ -52,7 +52,7 @@ const SeeReport = () => {
           e.preventDefault();
           const adminId = user.id;
           try{
-              const response = await axios.delete(`http://localhost:3001/checkreport/${id}`, { params: { adminId, adminName: user.name } });
+              const response = await axios.delete(`https://frflf-backend.onrender.com/checkreport/${id}`, { params: { adminId, adminName: user.name } });
               console.log(response);
               if(response.status ===200){
                   Swal.fire({
@@ -72,12 +72,12 @@ const SeeReport = () => {
       }
       const handleDisplay = (e, id)=>{
           e.preventDefault();
-          axios(`http://localhost:3001/fetchreport/${id}`)
+          axios(`https://frflf-backend.onrender.com/fetchreport/${id}`)
           .then(result=>{
               console.log(result.data);
               Swal.fire({
                   title: "Report!",
-                  imageUrl:`http://localhost:3001/${result.data.photo}`,
+                  imageUrl:`https://frflf-backend.onrender.com/${result.data.photo}`,
                   html: ` <div style="text-align:left; font-size:16px;">
                     <p style="textSize=10px"><strong>📍 Location:</strong> ${result.data.location}</p>
                     <p><strong>📝 Description:</strong> ${result.data.description}</p>
@@ -104,7 +104,7 @@ const SeeReport = () => {
           >
             <div onClick={(e) => handleDisplay(e, report._id)} className="cursor-pointer">
               <img
-                src={`http://localhost:3001/${report.photo}`}
+                src={`https://frflf-backend.onrender.com/${report.photo}`}
                 alt="Report"
                 className="w-full h-60 object-cover"
               />
