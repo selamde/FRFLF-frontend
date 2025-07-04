@@ -7,14 +7,14 @@ const ViewUsers = () => {
   const [users, setUsers] = useState();
   
        useEffect(()=>{
-          axios.get('http://localhost:3001/allUsers')
+          axios.get('https://frflf-backend.onrender.com/allUsers')
           .then(result => setUsers(result.data))
           .catch(err => console.log(err))
       },[]);
 
      const handleDisplay = (e, id)=>{
               e.preventDefault();
-              axios(`http://localhost:3001/Policeprofile/${id}`)
+              axios(`https://frflf-backend.onrender.com/Policeprofile/${id}`)
               .then(result=>{
                   console.log(result.data);
                   Swal.fire({
@@ -25,7 +25,7 @@ const ViewUsers = () => {
                       <p><strong>Email:</strong> ${result.data.email}</p>
                       <p><strong>Role:</strong> ${result.data.role}</p></div>
                     `,
-                      imageUrl: `http://localhost:3001/${result.data.image}`,
+                      imageUrl: `https://frflf-backend.onrender.com/${result.data.image}`,
                       imageWidth: 200,
                       imageHeight: 200,
                       imageAlt: "Custom image"
@@ -36,7 +36,7 @@ const ViewUsers = () => {
     const handleDelete = async(e, id)=>{
         e.preventDefault();
          try{
-             const response = await axios.delete(`http://localhost:3001/pdelete/${id}`);
+             const response = await axios.delete(`https://frflf-backend.onrender.com/pdelete/${id}`);
              console.log(response);
              if(response.status ===200){
                  Swal.fire({
@@ -74,7 +74,7 @@ return (
               className="flex items-center gap-4 cursor-pointer"
             >
               <img
-                src={`http://localhost:3001/${item.image}`}
+                src={`https://frflf-backend.onrender.com/${item.image}`}
                 alt={item.name}
                 className="w-16 h-16 rounded-full object-cover border-2 border-white shadow"
               />
