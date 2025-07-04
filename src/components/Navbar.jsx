@@ -61,7 +61,7 @@ return (
       
          <div ref={profileRef}   className='hidden md:block justify-center items-center border-2 border-white p-2 m-2 rounded-full ' onClick={()=>setPro(!pro)}>
            <img className='w-[50px] h-[50px] rounded-full' src={
-            `http://localhost:3001/${user.image}`
+            `https://frflf-backend.onrender.com/${user.image}`
             }alt='profile' />
            </div>
       {
