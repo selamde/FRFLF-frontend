@@ -32,14 +32,14 @@ const Dashboard = () => {
           operatorRes,
           fugitiveRes
         ] = await Promise.all([
-          axios.get('http://localhost:3001/getmessage'),
-          axios.get('http://localhost:3001/criminal-count'),
-          axios.get('http://localhost:3001/report-count'),
-          axios.get('http://localhost:3001/camera-count'),
-          axios.get('http://localhost:3001/admin-count'),
-          axios.get('http://localhost:3001/police-count'),
-          axios.get('http://localhost:3001/operator-count'),
-          axios.get('http://localhost:3001/matched-image-count')
+          axios.get('https://frflf-backend.onrender.com/getmessage'),
+          axios.get('https://frflf-backend.onrender.com/criminal-count'),
+          axios.get('https://frflf-backend.onrender.com/report-count'),
+          axios.get('https://frflf-backend.onrender.com/camera-count'),
+          axios.get('https://frflf-backend.onrender.com/admin-count'),
+          axios.get('https://frflf-backend.onrender.com/police-count'),
+          axios.get('https://frflf-backend.onrender.com/operator-count'),
+          axios.get('https://frflf-backend.onrender.com/matched-image-count')
         ]);
 
         if (isMounted) {
