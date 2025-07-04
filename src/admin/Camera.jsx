@@ -9,14 +9,14 @@ const Camera = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3001/fetch-cameras')
+      .get('https://frflf-backend.onrender.com/fetch-cameras')
       .then((res) => setCameras(res.data))
       .catch((err) => console.error('Error fetching cameras:', err));
   }, []);
 
   const handleDeleteCamera = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/delete-camera/${id}`, {
+      await axios.delete(`https://frflf-backend.onrender.com/delete-camera/${id}`, {
         params: { adminId: user?.id, adminName: user?.name }
       });
       setCameras(cameras.filter((camera) => camera._id !== id));
