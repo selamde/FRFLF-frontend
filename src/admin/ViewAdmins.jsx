@@ -121,68 +121,55 @@ const ViewAdmins = () => {
 
     return (
         <div className="container mx-auto px-4">
-            <div className="mt-32">
-                <h1 className="md:text-6xl text-4xl font-extrabold text-center text-gray-800 mb-10">
-                    Admins
-                </h1>
+  <div className="mt-32">
+    <h1 className="md:text-6xl text-4xl font-extrabold text-center text-gray-800 mb-10">
+      Admins
+    </h1>
 
-                <div className="flex flex-col gap-6 max-w-4xl mx-auto">
-                    {admins.length > 0 ? (
-                        admins.map((item) => (
-                            <div
-                                key={item._id}
-                                className="flex items-center justify-between bg-gradient-to-r from-blue-950 to-blue-800 text-white rounded-2xl p-6 shadow-lg transition-transform hover:scale-[1.03] relative"
-                            >
-                                {(actionLoading.display === item._id || actionLoading.delete === item._id) && (
-                                    <div className="absolute inset-0 bg-black bg-opacity-50 rounded-2xl flex items-center justify-center">
-                                        <ClipLoader size={30} color="#FFFFFF" />
-                                    </div>
-                                )}
-
-                                <div
-                                    onClick={(e) => handleDisplay(e, item._id)}
-                                    className="flex items-center gap-5 cursor-pointer"
-                                >
-                                    {item.image ? (
-                                        <img
-                                            src={`https://frflf-backend.onrender.com/${item.image}`}
-                                            alt={item.name}
-                                            className="w-16 h-16 rounded-full object-cover border-2 border-white shadow-md"
-                                        />
-                                    ) : (
-                                        <div className="w-16 h-16 rounded-full bg-gray-300 flex items-center justify-center border-2 border-white shadow-md">
-                                            <span className="text-gray-600 text-xl">?</span>
-                                        </div>
-                                    )}
-                                    <div>
-                                        <h2 className="text-xl font-bold">Name: {item.name}</h2>
-                                        <p className="text-md">Email: {item.email}</p>
-                                        <p className="text-md">Role: {item.role}</p>
-                                    </div>
-                                </div>
-
-                                <button
-                                    className="bg-red-600 hover:bg-white hover:text-red-600 border border-red-600 px-5 py-2 rounded-xl transition-all font-semibold"
-                                    onClick={(e) => handleDelete(e, item._id)}
-                                    disabled={actionLoading.delete === item._id}
-                                >
-                                    {actionLoading.delete === item._id ? (
-                                        <ClipLoader size={15} color="#FFFFFF" />
-                                    ) : (
-                                        'Delete'
-                                    )}
-                                </button>
-                            </div>
-                        ))
-                    ) : (
-                        <div className="text-center mt-10">
-                            <h1 className="text-3xl font-bold text-gray-600">No Admins Found</h1>
-                        </div>
-                    )}
-                </div>
+    <div className="flex flex-col gap-6 max-w-4xl mx-auto">
+      {admins?.length ? (
+        admins.map((item) => (
+          <div
+            key={item._id}
+            className="flex items-center justify-between bg-gradient-to-r from-blue-950 to-blue-800 text-white rounded-2xl p-6 shadow-lg transition-transform hover:scale-[1.03] cursor-pointer"
+          >
+            <div
+              onClick={(e) => handleDisplay(e, item._id)}
+              className="flex items-center gap-5"
+            >
+              <img
+                src={`http://localhost:3001/${item.image}`}
+                alt={item.name}
+                className="w-16 h-16 rounded-full object-cover border-2 border-white shadow-md"
+              />
+              <div>
+                <h2 className="text-xl font-bold">Name: {item.name}</h2>
+                <p className="text-md">Email: {item.email}</p>
+                <p className="text-md">Role: {item.role}</p>
+              </div>
             </div>
+            {user?.role ==='superadmin' && (
+              <button
+                className="bg-red-600 hover:bg-white hover:text-red-600 border border-red-600 px-5 py-2 rounded-xl transition-all font-semibold"
+                onClick={(e) => handleDelete(e, item._id)}  >
+                Delete
+              </button>
+            )}
+          
+
+
+            
+          </div>
+        ))
+      ) : (
+        <div className="text-center mt-10">
+          <h1 className="text-3xl font-bold text-gray-600">No Data Found</h1>
         </div>
-    );
+      )}
+    </div>
+  </div>
+</div>
+
 };
 
 export default ViewAdmins;
